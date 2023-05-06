@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class VentanaSwing extends JFrame {
     private JLabel etiqueta1;
@@ -29,6 +31,15 @@ public class VentanaSwing extends JFrame {
                 double centrigrados = Double.parseDouble(txtGrados.getText());
                 double farenheid = (centrigrados * 9.0/5.0) + 32.0;
                 lblResultado.setText(farenheid + " °F");
+            }
+        });
+
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                JOptionPane.showMessageDialog(null, "Adios...");
+
+                System.exit(0);
             }
         });
 
